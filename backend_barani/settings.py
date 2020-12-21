@@ -14,8 +14,8 @@ SECRET_KEY = '*f%no7c-4dxz!-h(j0%be+4$s@ruhi4pu1(uwl)j9uknj2dgg8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['baranibackend.pythonanywhere.com']
+CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
 
@@ -27,10 +27,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'marketing',
-    'rest_framework'
+    'rest_framework',
+    'corsheaders',
 ]
 
+
+
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,10 +71,10 @@ WSGI_APPLICATION = 'backend_barani.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'barani',
-        'PASSWORD':"Sunish23#",
-        'HOST':'localhost',
-        'USER':'root'
+        'NAME': 'baranibackend$barani',
+        'PASSWORD':"Manish28#",
+        'HOST':'baranibackend.mysql.pythonanywhere-services.com',
+        'USER':'baranibackend'
 
     }
 }
@@ -113,3 +117,4 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'assets')
