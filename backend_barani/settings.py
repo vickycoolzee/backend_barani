@@ -15,6 +15,7 @@ SECRET_KEY = '*f%no7c-4dxz!-h(j0%be+4$s@ruhi4pu1(uwl)j9uknj2dgg8'
 DEBUG = True
 
 ALLOWED_HOSTS = ['baranibackend.pythonanywhere.com']
+#ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
@@ -75,6 +76,10 @@ DATABASES = {
         'PASSWORD':"Manish28#",
         'HOST':'baranibackend.mysql.pythonanywhere-services.com',
         'USER':'baranibackend'
+        #'NAME': 'project1',
+        #'PASSWORD':"Sunish23#",
+        #'HOST':'localhost',
+        #'USER':'root'
 
     }
 }
@@ -103,14 +108,17 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+TIME_INPUT_FORMATS = [
+    '%I:%M:%S %p',  # 6:22:44 PM
+]
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
