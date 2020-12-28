@@ -76,7 +76,7 @@ DATABASES = {
         'PASSWORD':"Manish28#",
         'HOST':'baranibackend.mysql.pythonanywhere-services.com',
         'USER':'baranibackend'
-        #'NAME': 'project1',
+        #'NAME': 'projectbarani',
         #'PASSWORD':"Sunish23#",
         #'HOST':'localhost',
         #'USER':'root'
