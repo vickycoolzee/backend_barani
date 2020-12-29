@@ -112,8 +112,8 @@ class Feasibility_Detail_View(ModelViewSet):
         query = request.data
         print(query)
         query_object = Feasibility_Detail.objects.create(
-        Product_detail=Product_Detail.objects.get(id=query['Product_detail']),
-        Drawing_readbility=query['Drawing_readbility'], Dimensional_tolerance=query['Dimensional_tolerance'],
+        Product_detail=Product_Detail.objects.get(Product_id=query['Product_detail']),
+        Drawing_readability=query['Drawing_readability'], Dimensional_tolerance=query['Dimensional_tolerance'],
         Cast_material=query['Cast_material'],Hardness_required=query['Hardness_required'],
         Resource_requirement=query['Resource_requirement'],Whether_all_dimensions_given=query['Whether_all_dimensions_given'],
         Type_of_mould=query['Type_of_mould'], No_of_cavity=query['No_of_cavity'],Core_type = query['Core_type'],

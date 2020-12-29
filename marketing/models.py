@@ -28,14 +28,15 @@ class Individual_Detail(models.Model):
 
 
 class Order_Detail(models.Model):
-    RFQ_id= models.CharField(max_length=20,primary_key = True,default = 0)
+    RFQ_id= models.CharField(max_length=20,primary_key = True)
     Customer_detail = models.ForeignKey(Customer_Detail,on_delete=models.CASCADE)
     Date = models.DateField(default=None, null=True)
     Time = models.TimeField(default=None, null=True)
 
 
 class Product_Detail(models.Model):
-    RFQ_detail = models.ForeignKey(Order_Detail, on_delete=models.CASCADE)
+    Product_id = models.CharField(max_length=30,primary_key=True,default = 'None')
+    RFQ_detail = models.ForeignKey(Order_Detail,on_delete=models.CASCADE,default=None)
     Ventor_code = models.CharField(max_length=15,null=True)
     Part_code = models.CharField(max_length=15)
     Part_name = models.CharField(max_length=15)
@@ -51,13 +52,15 @@ class Product_Detail(models.Model):
     Quantity = models.CharField(max_length=10)
     Date = models.DateField(default = None,null=True)
     Time = models.TimeField(default = None,null=True)
+    Is_feasiable = models.BooleanField(default=True)
     def __str__(self):
         return self.Part_code
 
 
 class Feasibility_Detail(models.Model):
-    Product_detail = models.ForeignKey(Product_Detail, on_delete=models.CASCADE)
-    Drawing_readbility = models.CharField(max_length=10)
+    Feasibility_id = models.CharField(max_length=30, primary_key=True,default = 'None')
+    Product_detail = models.ForeignKey(Product_Detail,on_delete=models.CASCADE,default=None)
+    Drawing_readability = models.CharField(max_length=10)
     Dimensional_tolerance = models.CharField(max_length=20)
     Cast_material = models.CharField(max_length=20)
     Hardness_required = models.CharField(max_length=20)
