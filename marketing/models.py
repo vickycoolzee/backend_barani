@@ -24,7 +24,7 @@ class Individual_Detail(models.Model):
     Date = models.DateField(default = None,null=True)
     Time = models.TimeField(default = None,null=True)
     def __str__(self):
-        return  self.Customer_id + self.Name
+        return   self.Name
 
 
 class Order_Detail(models.Model):
@@ -32,6 +32,8 @@ class Order_Detail(models.Model):
     Customer_detail = models.ForeignKey(Customer_Detail,on_delete=models.CASCADE)
     Date = models.DateField(default=None, null=True)
     Time = models.TimeField(default=None, null=True)
+    def __str__(self):
+        return self.RFQ_id
 
 
 class Product_Detail(models.Model):
@@ -54,7 +56,7 @@ class Product_Detail(models.Model):
     Time = models.TimeField(default = None,null=True)
     Is_feasiable = models.BooleanField(default=True)
     def __str__(self):
-        return self.Part_code
+        return self.Product_id
 
 
 class Feasibility_Detail(models.Model):
