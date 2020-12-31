@@ -5,6 +5,8 @@ class Customer_Detail(models.Model):
     Customer_id = models.CharField(primary_key=True,max_length=60)
     Customer_name = models.CharField(max_length=100)
     Nick_name = models.CharField(max_length=30)
+    Contact = models.CharField(max_length = 50,default = None)
+    Email_id = models.EmailField(default = None)
     Address = models.TextField()
     GST_no = models.CharField(max_length=30)
     CIN_no = models.CharField(max_length=30)
