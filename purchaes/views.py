@@ -5,7 +5,7 @@ from rest_framework.viewsets import  ModelViewSet
 from rest_framework.response import Response
 from rest_framework.status import  HTTP_200_OK,HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 from django.utils.timezone import now
-# Create your views here.
+
 
 class Supplier_Detail_View(ModelViewSet):
     serializer_class = Supplier_Detail_Serialize
