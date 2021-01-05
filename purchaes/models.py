@@ -17,7 +17,7 @@ class Supplier_Detail(models.Model):
     Any_other_information = models.TextField()
     Date = models.DateField(null=True,default=None)
     def __str__(self):
-    	return.self Supplier_id
+    	return self.Supplier_id
 
 
 class Individual_Detail(models.Model):
