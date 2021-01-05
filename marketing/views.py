@@ -19,7 +19,7 @@ class Customer_Detail_View(ModelViewSet):
         try:
             query_object = Customer_Detail.objects.create(Customer_id=query['Customer_id'],Customer_name = query['Customer_name'],
                                                           Nick_name = query['Nick_name'], Address = query['Address'],
-                                                            Email_id = query['Email_id'],Contact = query['Contact'],
+                                                            Email_id = query['Email_id'],
                                                           GST_no = query['GST_no'], CIN_no = query['CIN_no'], Date = now().strftime("%Y-%m-%d"),
                                                           Time = now().strftime("%H:%M:%S")
                                                       )
