@@ -1,7 +1,7 @@
 from django.db import models
 
 class Supplier_Detail(models.Model):
-    Supplier_id = models.CharField(max_length=20,primary_key=True,on_delete=CASCADE)
+    Supplier_id = models.CharField(max_length=20,primary_key=True,on_delete=models.CASCADE)
     Supplier_name = models.CharField(max_length=50)
     Address = models.TextField()
     Contact = models.IntegerField()
@@ -17,7 +17,7 @@ class Supplier_Detail(models.Model):
     Any_other_information = models.TextField()
     Date = models.DateField(null=True,default=None)
     def __str__(self):
-    	return.self Supplier_id
+    	return self.Supplier_id
 
 
 class Individual_Detail(models.Model):
