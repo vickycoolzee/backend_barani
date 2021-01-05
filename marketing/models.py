@@ -108,3 +108,6 @@ class Feasibility_Detail(models.Model):
     Time = models.TimeField(default = None,null=True)
 
 
+
+
+
