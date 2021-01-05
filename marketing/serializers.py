@@ -9,22 +9,22 @@ class Order_Detail_Serialize(serializers.ModelSerializer):
     class Meta:
         model = Order_Detail
         fields = "__all__"
-        depth = 1
+        #depth = 1
 
 class Individual_Detail_Serialize(serializers.ModelSerializer):
     class Meta:
         model = Individual_Detail
         fields = "__all__"
-        depth = 1
+        #depth = 1
 
 class Product_Detail_Serialize(serializers.ModelSerializer):
     class Meta:
         model = Product_Detail
         fields = "__all__"
-        depth = 2
+        #depth = 2
 
 class Feasibility_Detail_Serialize(serializers.ModelSerializer):
     class Meta:
         model = Feasibility_Detail
         fields = "__all__"
-        depth = 2
+        #depth = 2
