@@ -73,14 +73,14 @@ WSGI_APPLICATION = 'backend_barani.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'baranibackend$barani',
-        'PASSWORD':"Manish28#",
-        'HOST':'baranibackend.mysql.pythonanywhere-services.com',
-        'USER':'baranibackend'
-        #'NAME': 'projectbarani',
-        #'PASSWORD':"Sunish23#",
-        #'HOST':'localhost',
-        #'USER':'root'
+        #'NAME': 'baranibackend$barani',
+        #'PASSWORD':"Manish28#",
+        #'HOST':'baranibackend.mysql.pythonanywhere-services.com',
+        #'USER':'baranibackend'
+        'NAME': 'projectbarani',
+        'PASSWORD':"Sunish23#",
+        'HOST':'localhost',
+        'USER':'root'
 
     }
 }
