@@ -14,8 +14,8 @@ SECRET_KEY = '*f%no7c-4dxz!-h(j0%be+4$s@ruhi4pu1(uwl)j9uknj2dgg8'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['baranibackend.pythonanywhere.com']
-#ALLOWED_HOSTS = []
+#ALLOWED_HOSTS = ['baranibackend.pythonanywhere.com']
+ALLOWED_HOSTS = []
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Application definition
@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'purchase',
     'corsheaders',
+    'store'
 ]
 
 
