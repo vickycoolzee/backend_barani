@@ -3,7 +3,7 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.shortcuts import render
-from .serializers import  Supplier_Detail_Serialize
+from .serializers import  Supplier_Detail_Serialize,Supplier_Evaluation_Serialize,Supplier_rating_Serialize
 from .models import Supplier_Detail
 from rest_framework.viewsets import  ModelViewSet
 from rest_framework.response import Response
