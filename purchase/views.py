@@ -3,8 +3,8 @@ from django.shortcuts import render
 # Create your views here.
 
 from django.shortcuts import render
-from .serializers import  Supplier_Detail_Serialize,Supplier_Evaluation_Serialize,Supplier_rating_Serialize
-from .models import Supplier_Detail
+from .serializers import  Supplier_Detail_Serialize,Supplier_Evaluation_Serialize,Supplier_rating_Serialize,Supplier_Assessment_Serialize
+from .models import Supplier_Detail,Supplier_assessment,Supplier_rating,Supplier_Evaluation
 from rest_framework.viewsets import  ModelViewSet
 from rest_framework.response import Response
 from rest_framework.status import  HTTP_200_OK,HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
@@ -38,3 +38,12 @@ class Supplier_Detail_View(ModelViewSet):
         except Exception as e:
             return Response(e,status=HTTP_400_BAD_REQUEST)
 
+class Supplier_assessment_view(ModelViewSet):
+    queryset = Supplier_assessment.objects.all()
+    serializer_class = Supplier_Assessment_Serialize
+class Supplier_rating_view(ModelViewSet):
+    queryset = Supplier_rating.objects.all()
+    serializer_class = Supplier_rating_Serialize
+class Supplier_evaluation_view(ModelViewSet):
+    queryset = Supplier_Evaluation.objects.all()
+    serializer_class = Supplier_Evaluation_Serialize

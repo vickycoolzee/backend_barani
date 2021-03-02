@@ -24,7 +24,6 @@ class Supplier_Detail(models.Model):
 
 class Supplier_Evaluation(models.Model):
     Supplier_detail = models.ForeignKey(Supplier_Detail,default=None,on_delete=models.CASCADE)
-    Supplier_code = models.CharField(max_length=50)
     Items = models.TextField()
     Period = models.CharField(max_length=100)
     Consistent_quality = models.BigIntegerField()
@@ -43,6 +42,7 @@ class Supplier_Evaluation(models.Model):
 
 
 class Supplier_rating(models.Model):
+    Supplier_detail = models.ForeignKey(Supplier_Detail, default=None, on_delete=models.CASCADE)
     TOQ = models.IntegerField()
     Qty_WD = models.IntegerField()
     Qty_W7D = models.IntegerField()
@@ -61,6 +61,18 @@ class Supplier_rating(models.Model):
     Date = models.DateField()
 
 
+class Supplier_assessment(models.Model):
+    Supplier_detail = models.ForeignKey(Supplier_Detail, default=None, on_delete=models.CASCADE)
+    Term_1 = models.IntegerField()
+    Term_2 = models.IntegerField()
+    Term_3= models.IntegerField()
+    Term_4 = models.IntegerField()
+    Term_5 = models.IntegerField()
+    Term_6 = models.IntegerField()
+    Term_7 = models.IntegerField()
+    Term_8 = models.IntegerField()
+    Term_9 = models.IntegerField()
+    Term_10 = models.IntegerField()
 
 
 
