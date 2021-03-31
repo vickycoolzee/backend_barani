@@ -79,7 +79,7 @@ DATABASES = {
         #'HOST':'baranibackend.mysql.pythonanywhere-services.com',
         #'USER':'baranibackend'
         'NAME': 'projectbarani',
-        'PASSWORD':"Barani@1234",
+        'PASSWORD':"Sunish23@",
         'HOST':'localhost',
         'USER':'root'
 

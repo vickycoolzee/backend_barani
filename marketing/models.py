@@ -1,5 +1,5 @@
 from django.db import models
-from purchase.models import Supplier_Detail
+
 class Customer_Detail(models.Model):
     Customer_id = models.CharField(primary_key=True,max_length=60)
     Customer_name = models.CharField(max_length=100)
@@ -17,8 +17,7 @@ class Customer_Detail(models.Model):
 
 
 class Individual_Detail(models.Model):
-    Customer_detail = models.ForeignKey(Customer_Detail, on_delete=models.CASCADE,default=None)
-    Supplier_detail = models.ForeignKey(Supplier_Detail, on_delete=models.CASCADE,default=None)
+    Customer_detail = models.ForeignKey(Customer_Detail, on_delete=models.CASCADE)
     Name = models.CharField(max_length=30)
     Designation = models.CharField(max_length=30)
     Email_id = models.EmailField()
