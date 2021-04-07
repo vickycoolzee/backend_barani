@@ -6,9 +6,8 @@ class Customer_Detail(models.Model):
     Nick_name = models.CharField(max_length=30)
     Email_id = models.EmailField(default = None)
     Address = models.TextField()
-    GST_no = models.CharField(max_length=30)
-    CIN_no = models.CharField(max_length=30)
-    Email_id = models.EmailField(default = 'abc@gmail.com')
+    GST_no = models.CharField(max_length=30,null=True,default=None)
+    CIN_no = models.CharField(max_length=30,null=True,default=None)
     Date = models.DateField(default = None,null=True)
     Time = models.TimeField(default = None,null=True)
     def __str__(self):
