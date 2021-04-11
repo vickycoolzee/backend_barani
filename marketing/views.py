@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.utils.timezone import datetime
+
 from .serializers import  Customer_Detail_Serialize,Order_Detail_Serialize,Individual_Detail_Serialize,Product_Detail_Serialize,Feasibility_Detail_Serialize
 from .models import Customer_Detail,Order_Detail,Individual_Detail,Product_Detail,Feasibility_Detail
 from rest_framework.viewsets import  ModelViewSet
@@ -6,6 +8,12 @@ from rest_framework.response import Response
 from rest_framework.status import  HTTP_200_OK,HTTP_400_BAD_REQUEST, HTTP_404_NOT_FOUND
 from django.utils.timezone import now
 # Create your views here.
+
+def test(request):
+    data = str(datetime.now()).replace(':','')[-1:-7:-1]
+
+    return render(request,"index.html",{'value':data})
+
 
 class Customer_Detail_View(ModelViewSet):
     serializer_class = Customer_Detail_Serialize
@@ -40,8 +48,9 @@ class Individual_Detail_View(ModelViewSet):
     def create(self, request, *args, **kwargs):
         query1 = request.data
         for query in query1:
-            print(query)
+            print("Query :",query)
             try:
+                print()
                 query_object = Individual_Detail.objects.create(Customer_detail  = Customer_Detail.objects.get(Customer_id = query['Customer_detail']),
                                                      Name= query['Name'], Designation = query['Designation'],
                                                             Email_id = query['Email_id'],Contact = query['Contact'],

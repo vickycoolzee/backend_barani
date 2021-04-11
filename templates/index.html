@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BFPL Registration</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+     <div class="container-fluid">
+        <div>
+            <hr style="width: auto; height: 10px; background-color:silver">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Supplier_id">Supplier ID</label>
+                    <input id="Supplier_id" type="text" name="Supplier_id" class="form-control"
+                        placeholder="" disabled value="{{value}}">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Supplier_name">Supplier Name</label>
+                    <input id="Supplier_name" type="text" name="Supplier_name" class="form-control"
+                        placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="address">Address Location</label>
+                    <textarea id="address" name="address" class="form-control" placeholder=""
+                        rows="2" ></textarea>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Contact_Person">Contact Person</label>
+                    <input id="" type="text" name="Contact_Person" class="form-control"
+                        placeholder="" >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Designation">Designation</label>
+                    <input id="Designation" type="text" name="Designation" class="form-control"
+                        placeholder="">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input id="email" type="text" name="email" class="form-control" placeholder=""
+                        >
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Contact">Phone Number</label>
+                    <input id="Contact" type="text" name="Contact" class="form-control"
+                        placeholder="">
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr style="width: auto; height: 10px; background-color:silver">
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="Nature_of_business">Nature of Business</label>
+                    <select id="Nature_of_business" name="Nature_of_business"
+                        class="form-control">
+                        <option value="" selected disabled>--Select--</option>
+                        <option>Dealer</option>
+                        <option>Distributor</option>
+                        <option>Manufacture</option>
+                        <option>Stockist</option>
+                        <option>Add New</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="gst">GST Number</label>
+                    <input id="gst" type="text" name="gst"
+                        class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="products">List of Products Handled</label>
+                    <textarea id="products" name="products"
+                        class="form-control" placeholder="" rows="3"></textarea>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="stockist">Distributor/Stockist for</label>
+                    <input id="stockist" type="text" name="stockist"
+                        class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="Details_of_present_reputed_customers">Details of Present Reputed
+                        Customers</label>
+                    <textarea id="Details_of_present_reputed_customers"
+                        name="Details_of_present_reputed_customers" class="form-control"
+                        placeholder="" rows="4"></textarea>
+                    <div style="padding-left: 40%; padding-top: 10px;">
+                        <input type="file" class="upload" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="Facilities_available">Facilities Available</label>
+                    <textarea id="Facilities_instruments_available"
+                        name="Facilities_instruments_available" class="form-control" placeholder=""
+                        rows="4"></textarea>
+                    <div style="padding-left: 40%; padding-top: 10px;">
+                        <input type="file" class="upload" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label for="Any_other_information">Any Other Information</label>
+                    <textarea id="Any_other_information" name="Any_other_information"
+                        class="form-control" placeholder="" rows="4"
+                       ></textarea>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr style="width: auto; height: 10px;background-color:silver">
+        </div>
+
+        <div class="col-md-2  py-3 ">
+            <button class="btn btn-success btn-send pt-2 btn-block"
+               >Submit</button>
+        </div>
+    </div>
+
+
+</body>
+</html>

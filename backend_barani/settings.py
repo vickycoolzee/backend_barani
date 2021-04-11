@@ -52,7 +52,7 @@ ROOT_URLCONF = 'backend_barani.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ DATABASES = {
         #'HOST':'baranibackend.mysql.pythonanywhere-services.com',
         #'USER':'baranibackend'
         'NAME': 'projectbarani',
-        'PASSWORD':"Sunish23#",
+        'PASSWORD':"Sunish23@",
         'HOST':'localhost',
         'USER':'root'
 
