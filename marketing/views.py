@@ -48,8 +48,9 @@ class Individual_Detail_View(ModelViewSet):
     def create(self, request, *args, **kwargs):
         query1 = request.data
         for query in query1:
-            print(query)
+            print("Query :",query)
             try:
+                print()
                 query_object = Individual_Detail.objects.create(Customer_detail  = Customer_Detail.objects.get(Customer_id = query['Customer_detail']),
                                                      Name= query['Name'], Designation = query['Designation'],
                                                             Email_id = query['Email_id'],Contact = query['Contact'],
