@@ -51,7 +51,7 @@ class Individual_Detail_View(ModelViewSet):
             print("Query :",query)
             try:
                 print()
-                query_object = Individual_Detail.objects.create(Customer_detail  = Customer_Detail.objects.get(Customer_id = query['Customer_detail']),
+                query_object = Individual_Detail.objects.create(Customer_detail  = Customer_Detail.objects.get(Customer_id = query['Customer_id']),
                                                      Name= query['Name'], Designation = query['Designation'],
                                                             Email_id = query['Email_id'],Contact = query['Contact'],
                                                       Date = now().strftime("%Y-%m-%d"),
@@ -59,7 +59,8 @@ class Individual_Detail_View(ModelViewSet):
                 query_object.save()
                 return Response("Succesfully Done!!!",status=HTTP_200_OK)
 
-            except:
+            except Exception as e:
+                print("Error",e)
                 return  Response("Unable to Done!!!", status= HTTP_400_BAD_REQUEST )
 
 
