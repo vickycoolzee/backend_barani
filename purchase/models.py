@@ -15,8 +15,7 @@ class Supplier_Detail(models.Model):
     Facilities = models.TextField(default = None)
     Facilities_file = models.FileField(default = None)
     Information = models.TextField()
-    Date = models.DateField(null=True,default=None)
-    Time = models.TimeField(null = True,default = None)
+    Datime = models.DateTimeField()
     Prepared_by = models.BooleanField(default=False)
     Approved_by = models.BooleanField(default=False)
     def __str__(self):
@@ -37,9 +36,7 @@ class Supplier_Evaluation(models.Model):
     Conclusion = models.CharField(max_length=50)
     Assessed_by = models.BooleanField(default=False)
     Approved_by = models.BooleanField(default=False)
-    Date = models.DateField()
-    Time = models.TimeField()
-
+    Datime = models.DateTimeField()
 
 class Supplier_rating(models.Model):
     Supplier_detail = models.ForeignKey(Supplier_Detail, default=None, on_delete=models.CASCADE)
@@ -57,9 +54,7 @@ class Supplier_rating(models.Model):
     SR = models.DecimalField(max_digits=5,decimal_places=2)
     Prepared_by= models.BooleanField(default=False)
     Approved_by = models.BooleanField(default=False)
-    Time = models.TimeField()
-    Date = models.DateField()
-
+    Datime = models.DateTimeField()
 
 class Supplier_assessment(models.Model):
     Supplier_detail = models.ForeignKey(Supplier_Detail, default=None, on_delete=models.CASCADE)

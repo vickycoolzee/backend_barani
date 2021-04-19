@@ -23,13 +23,12 @@ class Customer_Detail_View(ModelViewSet):
         return query
     def create(self, request, *args, **kwargs):
         query = request.data
-        print(query)
+        print(query, now().strftime("%d-%m-%Y,%H:%M"))
         try:
             query_object = Customer_Detail.objects.create(Customer_id=query['Customer_id'],Customer_name = query['Customer_name'],
                                                           Nick_name = query['Nick_name'], Address = query['Address'],
                                                             Email_id = query['Email_id'],
-                                                          GST_no = query['GST_no'], CIN_no = query['CIN_no'], Date = now().strftime("%Y-%m-%d"),
-                                                          Time = now().strftime("%H:%M:%S")
+                                                          GST_no = query['GST_no'], CIN_no = query['CIN_no'], Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p")
                                                       )
             query_object.save()
             return Response("Succesfully Done!!!",status=HTTP_200_OK)
@@ -43,24 +42,25 @@ class Individual_Detail_View(ModelViewSet):
     serializer_class = Individual_Detail_Serialize
 
     def get_queryset(self):
-        query = Individual_Detail.objects.all()
+        data= self.request.query_params.get('id')
+        query = Individual_Detail.objects.filter(Customer_detail = data)
+        print(query)
         return query
+    
     def create(self, request, *args, **kwargs):
         query1 = request.data
-        for query in query1:
-            print("Query :",query)
-            try:
-                print()
-                query_object = Individual_Detail.objects.create(Customer_detail  = Customer_Detail.objects.get(Customer_id = query['Customer_detail']),
+        try:
+            for query in query1:
+                query_object = Individual_Detail.objects.create(Customer_detail  = Customer_Detail.objects.get(Customer_id = query['Customer_id']),
                                                      Name= query['Name'], Designation = query['Designation'],
                                                             Email_id = query['Email_id'],Contact = query['Contact'],
-                                                      Date = now().strftime("%Y-%m-%d"),
-                                                      Time = now().strftime("%H:%M:%S") )
+                                                      Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p") )
                 query_object.save()
-                return Response("Succesfully Done!!!",status=HTTP_200_OK)
+            return Response("Succesfully Done!!!",status=HTTP_200_OK)
 
-            except:
-                return  Response("Unable to Done!!!", status= HTTP_400_BAD_REQUEST )
+        except Exception as e:
+            print("Error",e)
+            return  Response("Unable to Done!!!", status= HTTP_400_BAD_REQUEST )
 
 
 
@@ -77,8 +77,7 @@ class Order_Detail_View(ModelViewSet):
         query = request.data
         print(query)
         try:
-            query_object = Order_Detail.objects.create(Customer_detail = Customer_Detail.objects.get(Customer_id = query['Customer_detail']) ,RFQ_id = query['RFQ_id'], Date = now().strftime("%Y-%m-%d")
-                                                      ,Time = now().strftime("%H:%M:%S") )
+            query_object = Order_Detail.objects.create(Customer_detail = Customer_Detail.objects.get(Customer_id = query['Customer_detail']) ,RFQ_id = query['RFQ_id'], Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p"))
             query_object.save()
             return Response("Succesfully Done!!!",status=HTTP_200_OK)
 
@@ -106,8 +105,7 @@ class Product_Detail_View(ModelViewSet):
                 Packing_type=query['Packing_type'], Machinary_type=query['Machinary_type'],
                 Payment_terms=query['Payment_terms'], Export_required=query['Export_required'],
                 Quantity=query['Quantity'], Payments_terms_days=query['Payments_terms_days'],
-                Date=now().strftime("%Y-%m-%d")
-                , Time=now().strftime("%H:%M:%S"))
+                Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p"))
         query_object.save()
         return Response("Succesfully Done!!!", status=HTTP_200_OK)
 
@@ -147,6 +145,6 @@ class Feasibility_Detail_View(ModelViewSet):
         Not_feasible_reason=query['Not_feasible_reason'],Supplier_identification = query['Supplier_identification'],
         Customer_special_requirement=query['Customer_special_requirement'],
         BFC_constraints=query['BFC_constraints'],Comments=query['Comments'],
-        Date = now().strftime("%Y-%m-%d"),Time = now().strftime("%H:%M:%S"))
+       Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p"))
         query_object.save()
         return Response("Succesfully Done!!!", status=HTTP_200_OK)

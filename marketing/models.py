@@ -8,8 +8,7 @@ class Customer_Detail(models.Model):
     Address = models.TextField()
     GST_no = models.CharField(max_length=30,null=True,default=None)
     CIN_no = models.CharField(max_length=30,null=True,default=None)
-    Date = models.DateField(default = None,null=True)
-    Time = models.TimeField(default = None,null=True)
+    Datime = models.CharField(max_length=30)
     def __str__(self):
         return self.Customer_id
 
@@ -21,8 +20,7 @@ class Individual_Detail(models.Model):
     Designation = models.CharField(max_length=30)
     Email_id = models.EmailField()
     Contact = models.CharField(max_length=10)
-    Date = models.DateField(default = None,null=True)
-    Time = models.TimeField(default = None,null=True)
+    Datime = models.CharField(max_length=30)
     def __str__(self):
         return   self.Name
 
@@ -30,8 +28,7 @@ class Individual_Detail(models.Model):
 class Order_Detail(models.Model):
     RFQ_id= models.CharField(max_length=20,primary_key = True)
     Customer_detail = models.ForeignKey(Customer_Detail,on_delete=models.CASCADE)
-    Date = models.DateField(default=None, null=True)
-    Time = models.TimeField(default=None, null=True)
+    Datime = models.CharField(max_length=30)
     def __str__(self):
         return self.RFQ_id
 
@@ -52,8 +49,7 @@ class Product_Detail(models.Model):
     Export_required = models.CharField(max_length=5)
     Payments_terms_days = models.CharField(max_length=10,default = None,null=True)
     Quantity = models.CharField(max_length=10)
-    Date = models.DateField(default = None,null=True)
-    Time = models.TimeField(default = None,null=True)
+    Datime = models.CharField(max_length=30)
     Is_feasiable = models.BooleanField(default=True)
     def __str__(self):
         return self.Product_id
@@ -102,8 +98,8 @@ class Feasibility_Detail(models.Model):
     Customer_special_requirement = models.TextField(null = True)
     BFC_constraints = models.TextField(null = True)
     Comments = models.TextField(null=True)
-    Date = models.DateField(default = None,null=True)
-    Time = models.TimeField(default = None,null=True)
+    Datime = models.CharField(max_length=30)
+    
 
 
 
