@@ -90,23 +90,35 @@ class Product_Detail_View(ModelViewSet):
     serializer_class = Product_Detail_Serialize
 
     def get_queryset(self):
-        query = Product_Detail.objects.all()
-        return query
+        data= self.request.query_params.get('id')
+        print("data",data)
+        if data is not None:
+            print(data,Order_Detail.objects.get(RFQ_id = data))
+            query = Product_Detail.objects.filter(RFQ_detail = Order_Detail.objects.get(RFQ_id = data))
+            print(query)
+            return query
+        else:
+            query = Product_Detail.objects.all()
+            return query
 
     def create(self, request, *args, **kwargs):
-        query = request.data
-        print(query)
-
-        query_object = Product_Detail.objects.create(
-                RFQ_detail=Order_Detail.objects.get(RFQ_id=query['RFQ_detail']),
-                Ventor_code=query['Ventor_code'], Part_code=query['Part_code'],
-                Part_name=query['Part_name'], Casting_type=query['Casting_type'], Pattern_scope=query['Pattern_scope'],
-                Transport=query['Transport'], Painting_method=query['Painting_method'],
-                Packing_type=query['Packing_type'], Machinary_type=query['Machinary_type'],
-                Payment_terms=query['Payment_terms'], Export_required=query['Export_required'],
-                Quantity=query['Quantity'], Payments_terms_days=query['Payments_terms_days'],
-                Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p"))
-        query_object.save()
+        for query in request.data:
+            try:
+                print(query)
+                query_object = Product_Detail.objects.create(
+                        Product_id = query["Product_id"],
+                        RFQ_detail=Order_Detail.objects.get(RFQ_id=query['RFQ_detail']),
+                        Ventor_code=query['Ventor_code'], Part_code=query['Part_code'],
+                        Part_name=query['Part_name'], Casting_type=query['Casting_type'], Pattern_scope=query['Pattern_scope'],
+                        Transport=query['Transport'], Painting_method=query['Painting_method'],
+                        Packing_type=query['Packing_type'], Machinary_type=query['Machinary_type'],
+                        Payment_terms=query['Payment_terms'], Export_required=query['Export_required'],
+                        Quantity=query['Quantity'], Payments_terms_days=query['Payments_terms_days'],
+                        Datime = now().strftime("%d-%m-%Y_%I:%M:%S:%p"))
+                query_object.save()
+            except Exception as e:
+                print(e)
+                return Response("Unable to Upload data")
         return Response("Succesfully Done!!!", status=HTTP_200_OK)
 
 
